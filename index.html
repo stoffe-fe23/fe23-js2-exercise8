@@ -24,8 +24,8 @@
             <h3>Add new product</h3>
             <label for="new-product-name">Product: </label><input type="text" name="name" id="new-product-name" min-length="4" required>
             <label for="new-product-desc">Description: </label><textarea id="new-product-desc" name="description"></textarea>
-            <label for="new-product-image">Image: </label><input type="url" name="image" id="new-product-image" pattern="(http|https):\/\/.+\..+(.jpg|.jpeg|.png|.gif|.webp)" min-length="10" required>
-            <label for="new-product-inv">Inventory: </label><input type="number" name="inventory" id="new-product-inv" min="1" required>
+            <label for="new-product-image">Image URL: </label><input type="url" name="image" id="new-product-image" pattern="(http|https):\/\/.+\..+(.jpg|.jpeg|.png|.gif|.webp)" min-length="10" required>
+            <label for="new-product-inv">Inventory count: </label><input type="number" name="inventory" id="new-product-inv" min="1" required>
             <label for="new-product-price">Price: </label><input type="number" name="price" id="new-product-price" min="1" required>
             <button>Add product</button>
         </form>

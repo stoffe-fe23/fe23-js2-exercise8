@@ -154,7 +154,9 @@ function onProductBuySubmit(event) {
 // Display all products on the page
 function showProducts() {
     const outBox = document.querySelector("#productlist");
+    const productCount = document.querySelector("#productcount");
     outBox.innerHTML = "";
+    productCount.innerHTML = "";
 
     productApi.fetchJson().then((responseData) => {
         let productCounter = 0;
@@ -165,18 +167,22 @@ function showProducts() {
             const card = Utilities.createHTMLElement('article', '', outBox, 'product-card', { id: entry });
             const img = Utilities.createHTMLElement('img', product.name, card, 'product-image', { src: product.image });
             Utilities.createHTMLElement('h3', product.name, card, 'product-name');
-            Utilities.createHTMLElement('div', `Price: ${product.price ?? "-"} SEK`, card, 'product-price');
+            Utilities.createHTMLElement('div', `Price: ${product.price ?? "0"} SEK`, card, 'product-price');
             Utilities.createHTMLElement('div', `In stock: ${product.inventory ?? "-"}`, card, 'product-inventory');
             Utilities.createHTMLElement('div', product.description, card, 'product-description');
 
-            const buyForm = Utilities.createHTMLElement('form', '', card, 'product-buy-form', { id: `product-buy-form-${productCounter}` });
-            Utilities.createHTMLElement('input', '', buyForm, 'product-buy-amount', { name: "inventory", id: `product-buy-amount-${productCounter}`, type: "number", min: "1", max: product.inventory, value: "0" });
-            Utilities.createHTMLElement('button', "Buy", buyForm, 'product-buy-button', { id: `product-buy-button-${productCounter}` });
+            // Exclude buy form if the product is not in stock
+            if (product.inventory) {
+                const buyForm = Utilities.createHTMLElement('form', '', card, 'product-buy-form', { id: `product-buy-form-${productCounter}` });
+                Utilities.createHTMLElement('input', '', buyForm, 'product-buy-amount', { name: "inventory", id: `product-buy-amount-${productCounter}`, type: "number", min: "1", max: product.inventory, value: "0" });
+                Utilities.createHTMLElement('button', "Buy", buyForm, 'product-buy-button', { id: `product-buy-button-${productCounter}` });
+                buyForm.addEventListener("submit", onProductBuySubmit);
+            }
 
             img.addEventListener("error", (error) => { error.target.src = './images/product-placeholder.png'; });
-            buyForm.addEventListener("submit", onProductBuySubmit);
+
         }
-        Utilities.createHTMLElement('div', `Displaying ${productCounter} products`, document.querySelector("#productcount"), 'product-count');
+        Utilities.createHTMLElement('div', `Displaying ${productCounter} products`, productCount, 'product-count');
 
     }).catch((error) => console.error(error));
 }
