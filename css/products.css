@@ -69,7 +69,7 @@
 
 .product-buy-amount {
     background-color: black;
-    width: 75px;
+    width: 65px;
     color: white;
     border: 0px;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
@@ -80,7 +80,7 @@
 .product-buy-button {
     border-radius: 0px 15px 15px 0px;
     border: 0;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     background-color: rgb(99, 106, 141);
     color: white;
     font-weight: 700;
