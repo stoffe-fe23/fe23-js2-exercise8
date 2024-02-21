@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/forum.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forum.css">
+    <title>Övning 8 - REST API</title>
+</head>
+<body>
+    <header>
+        <h1>Övning 8</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">To Do-list</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li class="active"><a href="forum.html">Forum</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="forum">
+            <h2>Forum</h2>
+            <form id="forum-newpost-form">
+                <div id="forum-newpost-title-wrapper"><input name="title" id="forum-newpost-title" type="text" minlength="2" maxlength="100" placeholder="Enter post title" required></div>
+                <div id="forum-newpost-subject-wrapper">
+                    <select name="subject" id="forum-newpost-subject">
+                        <option value=""> -- Select category --</option>
+                        <option value="food">Food</option>
+                        <option value="music">Music</option>
+                        <option value="monsters">Monsters</option>
+                    </select>
+                </div>
+                <div id="forum-newpost-author-wrapper"><input name="author" id="forum-newpost-author" type="text" minlength="2" maxlength="20" placeholder="Enter your name" required></div>
+                <textarea id="forum-newpost-body" name="body" minlength="3" required></textarea>
+                <button id="forum-newpost-submit">Post new message</button>
+            </form>
+            <div id="forumposts"></div>
+        </section>
+    </main>
+</body>
+</html>
