@@ -249,7 +249,7 @@
 
 #forum-newpost-form #forum-newpost-author {
     border-radius: 0px 12px 0px 0px;
-    border-bottom: 1px dotted grey;
+    border-bottom: 1px dashed grey;
     padding: 0.5rem;
 }
 
@@ -259,7 +259,7 @@
 
 #forum-newpost-form #forum-newpost-title {
     border-radius: 12px 0px 0px 0px;
-    border-bottom: 1px dotted grey;
+    border-bottom: 1px dashed grey;
     font-weight: 700;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
@@ -270,7 +270,7 @@
 
 #forum-newpost-form #forum-newpost-subject {
     
-    border-bottom: 1px dotted grey;
+    border-bottom: 1px dashed grey;
 }
 
 #forum-newpost-form #forum-newpost-body {
